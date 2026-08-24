@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://joinmentalic.github.io/landing/sitemap.xml

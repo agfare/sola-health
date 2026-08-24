@@ -1,0 +1,17 @@
+.advantage-cards {
+  margin-top: 70px;
+  display: flex;
+  gap: 24px;
+}
+
+@media (width <= 1024px) {
+  .advantage-cards {
+    flex-direction: column;
+  }
+}
+
+@media (width <= 768px) {
+  .advantage-cards {
+    margin-top: 16px;
+  }
+}

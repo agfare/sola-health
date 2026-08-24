@@ -1,0 +1,76 @@
+.problem-cards {
+  display: flex;
+  gap: 24px;
+}
+
+.problem-card {
+  background: linear-gradient(180deg, #ecf0e5 15.38%, #ecf0e5 100%);
+  padding: 30px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  flex: 1;
+}
+
+.problem-card-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.change {
+  background-color: #fef2e4;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 24px;
+  row-gap: 32px;
+}
+
+.change-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.5%;
+  color: #ea784f;
+}
+
+.soft-star {
+  clip-path: path(
+    "M19.9529 0.485976C20.0299 -0.161992 20.9701 -0.161992 21.0471 0.485976L21.6921 5.92184C22.5249 12.941 28.059 18.4751 35.0781 19.3079L40.514 19.9529C41.162 20.0299 41.162 20.9701 40.514 21.0471L35.0781 21.6921C28.059 22.5249 22.5249 28.059 21.6921 35.0781L21.0471 40.514C20.9701 41.162 20.0299 41.162 19.9529 40.514L19.3079 35.0781C18.4751 28.059 12.941 22.5249 5.92184 21.6921L0.485976 21.0471C-0.161992 20.9701 -0.161992 20.0299 0.485976 19.9529L5.92184 19.3079C12.941 18.4751 18.4751 12.941 19.3079 5.92184L19.9529 0.485976Z"
+  );
+}
+
+.change-star {
+  height: 41px;
+  width: 41px;
+  background-color: #ea784f;
+}
+
+@media (width <= 1024px) {
+  .problem-cards {
+    flex-direction: column;
+  }
+}
+
+@media (width <= 768px) {
+  .problem-card {
+    border-radius: 16px;
+    padding: 16px;
+    row-gap: 10px;
+  }
+
+  .change {
+    border-radius: 16px;
+    padding: 24px 8px;
+    row-gap: 24px;
+  }
+
+  .change-title {
+    font-size: 1.5rem;
+  }
+}

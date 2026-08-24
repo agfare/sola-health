@@ -1,0 +1,235 @@
+@import "./components/header/header.css";
+@import "./components/footer/footer.css";
+@import "./components/hero/hero.css";
+@import "./components/problem/problem.css";
+@import "./components/for-whom/for-whom.css";
+@import "./components/about-product/about-product.css";
+@import "./components/how-app-works/how-app-works.css";
+@import "./components/advantages/advantages.css";
+@import "./components/email/email.css";
+
+:root {
+  --main: #121212;
+  --main-contrast: #fff;
+  --card-1-bg: #f6f6f6;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hiragino Kaku Gothic Std";
+  src: url("./assets/fonts/Hiragino Kaku Gothic Std W8.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--main);
+  font-family: "Rubik", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  margin: 0;
+  text-wrap: balance;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--main-contrast);
+  width: max-content;
+}
+
+section {
+  padding: 0 70px;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.3;
+  letter-spacing: 0.5%;
+  font-family: "Hiragino Kaku Gothic Std", sans-serif;
+}
+
+h2,
+h3 {
+  font-size: 2.375rem;
+  text-align: center;
+  line-height: 1.2;
+  font-family: "Hiragino Kaku Gothic Std", sans-serif;
+  font-weight: 800;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  padding: 0 36px;
+  row-gap: 120px;
+  width: 100%;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.black-button {
+  background: var(--main);
+  padding: 6px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--main-contrast);
+}
+
+.about-product-content-button {
+  width: max-content;
+}
+
+.section-anchor {
+  font-size: 1.25rem;
+  letter-spacing: 2%;
+  text-align: center;
+  display: block;
+  color: #7b7b7b;
+}
+
+.subtitle {
+  text-align: left;
+  font-size: 2rem;
+}
+
+.icon-card {
+  background: var(--card-1-bg);
+  padding: 30px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  flex: 1;
+}
+
+.icon {
+  width: 46px;
+  height: 46px;
+}
+
+.header,
+.footer {
+  nav a:hover {
+    text-decoration: underline;
+  }
+}
+
+.black-button:hover,
+.notify-button:hover {
+  opacity: 0.8;
+}
+
+@media (width <= 1024px) {
+  h1,
+  h2,
+  h3 {
+    margin: 0.5em 0;
+  }
+
+  .main {
+    padding: 0 8px;
+    row-gap: 40px;
+  }
+
+  section {
+    padding: 0 8px;
+  }
+}
+
+@media (width <= 768px) {
+  h1,
+  h2,
+  h3 {
+    margin: 0.2em 0;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .subtitle,
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .icon-card {
+    padding: 16px;
+    row-gap: 12px;
+  }
+
+  .icon {
+    display: inline-block;
+  }
+}
