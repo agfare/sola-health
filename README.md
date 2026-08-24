@@ -1,4 +1,4 @@
-# Mentalic landing
+# Sola Health landing
 
 Static marketing site: vanilla HTML/CSS/JS, bundled with **Vite 7**. Raster images are **PNG in the repo**; production output uses **WebP** (via Sharp in the build pipeline).
 
