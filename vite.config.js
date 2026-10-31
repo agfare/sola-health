@@ -208,6 +208,27 @@ function distPngToWebpPlugin() {
   };
 }
 
+/** Dev/preview: serve /privacy and /tos from privacy.html and tos.html, as GitHub Pages does. */
+function extensionlessPagesPlugin() {
+  const rewrite = (req, _res, next) => {
+    const path = req.url.split("?")[0];
+    if (path === "/privacy" || path === "/tos") {
+      req.url = req.url.replace(path, `${path}.html`);
+    }
+    next();
+  };
+
+  return {
+    name: "extensionless-pages",
+    configureServer(server) {
+      server.middlewares.use(rewrite);
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(rewrite);
+    },
+  };
+}
+
 /** dist/privacy.html and tos.html → plain-text copies (privacy.txt, tos.txt) for pasting into the App Store. */
 function legalTextPlugin() {
   let outDir;
@@ -282,6 +303,7 @@ export default defineConfig({
     htmlSourcePngToWebpPlugin(),
     distPngToWebpPlugin(),
     legalTextPlugin(),
+    extensionlessPagesPlugin(),
   ],
   server: {
     open: true,
