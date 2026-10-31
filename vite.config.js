@@ -208,6 +208,48 @@ function distPngToWebpPlugin() {
   };
 }
 
+/** dist/privacy.html and tos.html → plain-text copies (privacy.txt, tos.txt) for pasting into the App Store. */
+function legalTextPlugin() {
+  let outDir;
+
+  return {
+    name: "legal-text",
+    apply: "build",
+    configResolved(config) {
+      outDir = resolve(config.root, config.build.outDir);
+    },
+    async closeBundle() {
+      for (const name of ["privacy", "tos"]) {
+        const htmlPath = join(outDir, `${name}.html`);
+        if (!existsSync(htmlPath)) {
+          continue;
+        }
+
+        const html = await readFile(htmlPath, "utf8");
+        const main = html.match(/<main[^>]*>([\s\S]*)<\/main>/)?.[1] ?? "";
+        const text = main
+          .replace(/<a [^>]*class="legal-back"[^>]*>[\s\S]*?<\/a>/, "")
+          .replace(/<li[^>]*>/g, "- ")
+          .replace(/<\/li>/g, "\n")
+          .replace(/<\/(h[1-6]|p|ul|ol)>/g, "\n\n")
+          .replace(/<br\s*\/?>/g, "\n")
+          .replace(/<[^>]+>/g, "")
+          .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+          .replace(/&nbsp;/g, " ")
+          .replace(/&quot;/g, '"')
+          .replace(/&lt;/g, "<")
+          .replace(/&gt;/g, ">")
+          .replace(/&amp;/g, "&")
+          .replace(/^- \s+/gm, "- ")
+          .replace(/\n{3,}/g, "\n\n")
+          .trim();
+
+        await writeFile(join(outDir, `${name}.txt`), `${text}\n`, "utf8");
+      }
+    },
+  };
+}
+
 function rasterAssetFileNames(assetInfo) {
   const name = assetInfo.names?.[0] ?? assetInfo.name ?? "";
   const ext = extname(name).toLowerCase();
@@ -239,6 +281,7 @@ export default defineConfig({
     htmlPartialsPlugin(),
     htmlSourcePngToWebpPlugin(),
     distPngToWebpPlugin(),
+    legalTextPlugin(),
   ],
   server: {
     open: true,
