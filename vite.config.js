@@ -248,6 +248,11 @@ export default defineConfig({
     emptyOutDir: true,
     assetsDir: "",
     rollupOptions: {
+      input: {
+        main: resolve("src/index.html"),
+        privacy: resolve("src/privacy.html"),
+        tos: resolve("src/tos.html"),
+      },
       output: {
         entryFileNames: "[name]-[hash].js",
         chunkFileNames: "[name]-[hash].js",

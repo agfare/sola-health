@@ -186,6 +186,45 @@ h3 {
   opacity: 0.8;
 }
 
+.legal {
+  max-width: 800px;
+  width: 100%;
+  padding: 40px 16px 80px;
+  text-wrap: wrap;
+}
+
+.legal h2,
+.legal h3,
+.legal h4 {
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.legal h3,
+.legal h4 {
+  font-size: 1.25rem;
+}
+
+.legal p,
+.legal ul,
+.legal ol {
+  margin: 0 0 1em;
+}
+
+.legal ul,
+.legal ol {
+  padding-left: 1.5em;
+}
+
+.legal-back {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.legal-back:hover {
+  text-decoration: underline;
+}
+
 @media (width <= 1024px) {
   h1,
   h2,
